@@ -46,7 +46,7 @@ What makes buyers want to buy or sellers want to sell?
 - **Industry Trends**: If electric vehicles are booming, EV battery manufacturers might see price increases.', 
 'beginner', 2, 1000.00),
 
-('i1111111-1111-1111-1111-111111111111', 'Understanding Candlestick Charts', 
+('c1111111-1111-1111-1111-111111111111', 'Understanding Candlestick Charts', 
 '### Introduction to Technical Charts
 
 A candlestick chart is a style of financial chart used to describe price movements of a security, derivative, or currency. Each "candle" represents a specific time frame (e.g., 1 minute, 5 minutes, 1 day).
@@ -68,7 +68,7 @@ Each candle tells a story of the battle between buyers (bulls) and sellers (bear
 - **Hammer**: A small body at the top with a long lower wick. It indicates sellers tried to push prices down, but buyers fought back and pushed it up near the open. It represents a potential bullish reversal.', 
 'intermediate', 3, 1000.00),
 
-('i2222222-2222-2222-2222-222222222222', 'Market Orders vs. Limit Orders', 
+('c2222222-2222-2222-2222-222222222222', 'Market Orders vs. Limit Orders', 
 '### How to Buy and Sell: Order Types
 
 When you want to execute a paper trade or a real trade, you must choose how you want the order to execute.
