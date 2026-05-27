@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { TrendingUp, Key, Mail, User, AlertCircle } from 'lucide-react';
 
 export default function Auth() {
-  const { signIn, signUp } = useAuth();
+  const { signIn, signUp, signInWithGoogle } = useAuth();
   const navigate = useNavigate();
   const [isSignUp, setIsSignUp] = useState(false);
   const [email, setEmail] = useState('');
@@ -36,8 +36,13 @@ export default function Auth() {
     }
   };
 
-  const handleGoogleMockLogin = () => {
-    setError("Google OAuth is enabled in Supabase! To complete setup, configure the redirect URL in your Supabase dashboard Auth Providers settings.");
+  const handleGoogleLogin = async () => {
+    setError('');
+    try {
+      await signInWithGoogle();
+    } catch (err) {
+      setError(err.message || "Google Authentication failed.");
+    }
   };
 
   return (
@@ -147,7 +152,7 @@ export default function Auth() {
 
         <div className="mt-6 flex flex-col space-y-3 relative z-10">
           <button
-            onClick={handleGoogleMockLogin}
+            onClick={handleGoogleLogin}
             className="w-full bg-transparent hover:bg-slate-900 border border-slate-800 text-slate-300 font-semibold py-2.5 rounded-xl transition-all flex items-center justify-center space-x-2 text-sm cursor-pointer"
           >
             <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor">

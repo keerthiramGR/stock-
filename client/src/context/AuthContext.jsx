@@ -8,7 +8,8 @@ const AuthContext = createContext({
   signUp: async () => {},
   signIn: async () => {},
   signOut: async () => {},
-  updateProfile: async () => {}
+  updateProfile: async () => {},
+  signInWithGoogle: async () => {}
 });
 
 export const AuthProvider = ({ children }) => {
@@ -45,6 +46,18 @@ export const AuthProvider = ({ children }) => {
     if (error) throw error;
     setProfile(null);
     setUser(null);
+  };
+
+  // Sign In with Google OAuth
+  const signInWithGoogle = async () => {
+    const { data, error } = await supabase.auth.signInWithOAuth({
+      provider: 'google',
+      options: {
+        redirectTo: window.location.origin
+      }
+    });
+    if (error) throw error;
+    return data;
   };
 
   // Manual Profile Update Helper
@@ -206,7 +219,7 @@ export const AuthProvider = ({ children }) => {
   }, [user]);
 
   return (
-    <AuthContext.Provider value={{ user, profile, loading, signUp, signIn, signOut, updateProfile }}>
+    <AuthContext.Provider value={{ user, profile, loading, signUp, signIn, signOut, updateProfile, signInWithGoogle }}>
       {children}
     </AuthContext.Provider>
   );
